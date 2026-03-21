@@ -1,6 +1,6 @@
 services:
   portfolio:
-    build:
+    build: .
     restart: always
     networks:
       - portfolio
