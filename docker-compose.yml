@@ -6,9 +6,9 @@ services:
       - portfolio
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nextapp.rule=Host(`76.13.241.100`)"
-      - "traefik.http.routers.nextapp.entrypoints=websecure"
-      - "traefik.http.routers.nextapp.tls.certresolver=myresolver"
+      - "traefik.http.routers.nextapp.rule=Host(`portfolio.76.13.241.100`)"
+      - "traefik.http.routers.nextapp.entrypoints=web"
+      # - "traefik.http.routers.nextapp.tls.certresolver=myresolver"
       # Next.js usually runs on port 3000 inside the container
       - "traefik.http.services.nextapp.loadbalancer.server.port=3000"
 
