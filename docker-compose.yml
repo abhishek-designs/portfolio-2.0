@@ -7,9 +7,9 @@ services:
       - traefik.http.routers.portfolio.rule=Host(`abhishek-kalyane.tech`) || Host(`www.abhishek-kalyane.tech`)
       - traefik.http.routers.portfolio.entrypoints=web
       - traefik.http.services.portfolio.loadbalancer.server.port=3000
-      - traefik.http.routers.nextjs.entrypoints=websecure
-      - traefik.http.routers.nextjs.tls=true
-      - traefik.http.routers.nextjs.tls.certresolver=letsencrypt
+      - traefik.http.routers.portfolio.entrypoints=websecure
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=letsencrypt
     environment:
       - PROTOCOL_HEADER=x-forwarded-proto
       - HOST_HEADER=x-forwarded-host
