@@ -1,17 +1,23 @@
 services:
-  portfolio:
+  portfolio-20-portfolio-1:
+    image: portfolio-20-portfolio
     build: .
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portfolio.rule=Host(`abhishek-kalyane.tech`) || Host(`www.abhishek-kalyane.tech`)
+      - traefik.http.routers.portfolio.entrypoints=web
+      - traefik.http.services.portfolio.loadbalancer.server.port=3000
+      - traefik.http.routers.nextjs.entrypoints=websecure
+      - traefik.http.routers.nextjs.tls=true
+      - traefik.http.routers.nextjs.tls.certresolver=letsencrypt
+    environment:
+      - PROTOCOL_HEADER=x-forwarded-proto
+      - HOST_HEADER=x-forwarded-host
     restart: always
+    ports:
+      - ${PORT}:${PORT}
     networks:
       - traefik-public
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.nextapp.rule=Host(`portfolio.76.13.241.100`)"
-      - "traefik.http.routers.nextapp.entrypoints=web"
-      # - "traefik.http.routers.nextapp.tls.certresolver=myresolver"
-      # Next.js usually runs on port 3000 inside the container
-      - "traefik.http.services.nextapp.loadbalancer.server.port=3000"
-
 networks:
   traefik-public:
     external: true
