@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Hero() {
   const scrollToContact = () => {
@@ -98,15 +99,15 @@ export function Hero() {
               <div className="absolute inset-0 bg-lime-500/20 blur-3xl rounded-full" />
               
               {/* Portrait container */}
-              <div className="relative rounded-2xl overflow-hidden border-2 border-lime-500/30 bg-gradient-to-br from-lime-500/10 to-transparent backdrop-blur-xl">
-                <div className="aspect-square flex items-center justify-center">
-                  <div className="text-center space-y-4 p-8">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-lime-500/20 border-2 border-lime-500/50 flex items-center justify-center">
-                      <span className="text-6xl">👨‍💻</span>
-                    </div>
-                    <p className="text-sm text-gray-400">Professional portrait placeholder</p>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden border-2 border-lime-500/30 bg-gradient-to-br from-lime-500/10 to-transparent backdrop-blur-xl aspect-square">
+                <Image
+                  src="/portrait.jpg"
+                  alt="Abhishek Kalyane Portrait"
+                  fill
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               {/* Decorative elements */}
