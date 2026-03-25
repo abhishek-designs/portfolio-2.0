@@ -40,7 +40,7 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             >
-              I build{" "}
+              I build extremely{" "}
               <span className="text-lime-500 relative">
                 high-performance
                 <motion.span
